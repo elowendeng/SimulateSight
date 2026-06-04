@@ -76,11 +76,12 @@ Res2Net improves upon standard ResNet by:
 1. **LMS transformation**: Convert RGB to cone response space.
 
 2. **Vischeck projection**: Simulate deuteranopia (green-blind)
-   $$
-   \mathbf{M}_{deutan} = \begin{bmatrix} 0.2920 & 0.7050 & 0.0000 \\ 0.2920 & 0.7050 & 0.0000 \\ -0.0210 & 0.0300 & 1.0000 \end{bmatrix}
-   $$
 
-3. **Texture enhancement**:
+$$
+\mathbf{M}_{deutan} = \begin{bmatrix} 0.2920 & 0.7050 & 0.0000 \\ 0.2920 & 0.7050 & 0.0000 \\ -0.0210 & 0.0300 & 1.0000 \end{bmatrix}
+$$
+
+4. **Texture enhancement**:
 
    - CLAHE (Contrast Limited Adaptive Histogram Equalization).
    - Multi-scale texture amplification (Laplacian + Sobel).
@@ -114,14 +115,14 @@ with $\lambda = 0.3$.
 
 We report six complementary metrics following COD literature:
 
-|  Metric   |                    Formula                     |                 Description                 |        Range         |
-| :-------: | :--------------------------------------------: | :-----------------------------------------: | :------------------: |
-|  **MAE**  |            $\frac{1}{N}\sum\|P-G\|$            |  Mean Absolute Error (pixel-wise accuracy)  | 0 (best) - 1 (worst) |
-|  **Sm**   |    $\alpha \cdot S_o + (1-\alpha)\cdot S_r$    |  Structure Measure (structural similarity)  | 0 (worst) - 1 (best) |
-|  **wFm**  | $\frac{(1+\beta^2)P_w R_w}{\beta^2 P_w + R_w}$ |     Weighted F-measure (region quality)     | 0 (worst) - 1 (best) |
-| **adpFm** |  Adaptive threshold $T=2\cdot\text{mean}(P)$   |  Adaptive F-measure (per-image threshold)   | 0 (worst) - 1 (best) |
-| **adpEm** |  $\frac{1}{4}(1+x)^2$ on binarized prediction  |   Adaptive E-measure (enhanced alignment)   | 0 (worst) - 1 (best) |
-| **maxFm** |            $\max_{t\in[0,1]} F(t)$             | Maximum F-measure (best possible threshold) | 0 (worst) - 1 (best) |
+|  Metric   |                    Formula                     |                 Description                 |
+| :-------: | :--------------------------------------------: | :-----------------------------------------: |
+|  **MAE**  |            $\frac{1}{N}\sum\|P-G\|$            |  Mean Absolute Error (pixel-wise accuracy)  |
+|  **Sm**   |    $\alpha \cdot S_o + (1-\alpha)\cdot S_r$    |  Structure Measure (structural similarity)  |
+|  **wFm**  | $\frac{(1+\beta^2)P_w R_w}{\beta^2 P_w + R_w}$ |     Weighted F-measure (region quality)     |
+| **adpFm** |  Adaptive threshold $T=2\cdot\text{mean}(P)$   |  Adaptive F-measure (per-image threshold)   |
+| **adpEm** |  $\frac{1}{4}(1+x)^2$ on binarized prediction  |   Adaptive E-measure (enhanced alignment)   |
+| **maxFm** |            $\max_{t\in[0,1]} F(t)$             | Maximum F-measure (best possible threshold) |
 
 ## Project Structure
 
