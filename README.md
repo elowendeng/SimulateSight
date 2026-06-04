@@ -77,8 +77,12 @@ Res2Net improves upon standard ResNet by:
 
 2. **Vischeck projection**: Simulate deuteranopia (green-blind)
 
-$$
-\mathbf{M}_{deutan} = \begin{bmatrix} 0.2920 & 0.7050 & 0.0000 \\ 0.2920 & 0.7050 & 0.0000 \\ -0.0210 & 0.0300 & 1.0000 \end{bmatrix}
+$$\mathbf{M}_{deutan} =
+\begin{bmatrix}
+0.2920 & 0.7050 & 0.0000 \\
+0.2920 & 0.7050 & 0.0000 \\
+-0.0210 & 0.0300 & 1.0000
+\end{bmatrix}
 $$
 
 4. **Texture enhancement**:
@@ -342,6 +346,28 @@ python predict.py -p triple_hierarchical -i /path/to/images --cb_dir /path/to/cb
 
 ## Detailed Results
 
+### Training Curves
+
+#### 1. Single-stream
+
+![single_curve](imgs/single_curve.png)
+
+#### 2. Dual-stream
+
+![dual_curve](imgs/dual_curve.png)
+
+*Figure: Training curves for single-stream (left) and dual-stream (right) models. The dual-stream model shows faster convergence and lower final loss.*
+
+#### 3. Triple-stream (Direct)
+
+![direct_curve](imgs/direct_curve.png)
+
+#### 4. Triple-stream (Hierarchical)
+
+![hierarchical_curve](imgs/hierarchical_curve.png)
+
+*Figure: Training curves for triple-stream direct fusion (left) and hierarchical fusion (right) models. The hierarchical model achieves better convergence with more stable validation metrics.*
+
 ### Quantitative Results
 
 **Validation Set Performance** (CAMO training set, 1000 images):
@@ -386,28 +412,6 @@ python predict.py -p triple_hierarchical -i /path/to/images --cb_dir /path/to/cb
 ![visual](imgs/visual.jpg)
 
 *Figure: Visual comparison of predictions across different models. From left to right: original image, ground truth, single-stream prediction, dual-stream prediction, triple-stream direct fusion prediction, and triple-stream hierarchical fusion prediction. Our hierarchical triple-stream model produces more accurate and complete segmentation, especially in challenging camouflage scenes.*
-
-### Training Curves
-
-#### 1. Single-stream
-
-![single_curve](imgs/single_curve.png)
-
-#### 2. Dual-stream
-
-![dual_curve](imgs/dual_curve.png)
-
-*Figure: Training curves for single-stream (left) and dual-stream (right) models. The dual-stream model shows faster convergence and lower final loss.*
-
-#### 3. Triple-stream (Direct)
-
-![direct_curve](imgs/direct_curve.png)
-
-#### 4. Triple-stream (Hierarchical)
-
-![hierarchical_curve](imgs/hierarchical_curve.png)
-
-*Figure: Training curves for triple-stream direct fusion (left) and hierarchical fusion (right) models. The hierarchical model achieves better convergence with more stable validation metrics.*
 
 ## Key Insights
 
