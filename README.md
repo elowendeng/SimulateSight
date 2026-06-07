@@ -265,6 +265,16 @@ chmod +x generator.sh
 ./generator.sh
 ```
 
+You will encounter the following situation. Just input "y" to proceed.
+
+<span class="emoji emoji26a0"></span> Generated data will be saved in the original dataset directories!
+The following folders will be created:
+- Imgs_SL (sunglass images)
+- Imgs_CB (colorblind images)
+- GT_Edge (edge maps)
+
+Continue? (y/N): y
+
 **Or run manually:**
 
 ```bash
