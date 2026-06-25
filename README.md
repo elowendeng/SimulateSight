@@ -433,6 +433,9 @@ python predict.py -p triple_hierarchical -i /path/to/images --cb_dir /path/to/cb
 
 4. **Significant improvement in complex scenarios**: On the most challenging CAMO dataset, triple-stream Hierarchical reduces MAE by 10.8% vs single-stream.
 
+## Future Work
+Some further improvement ideas can be found in [idea.md](https://github.com/elowendeng/SimulateSight/blob/main/idea.md), and some experimental code is available in [attempt.ipynb](https://github.com/elowendeng/SimulateSight/blob/main/attempt.ipynb).
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
